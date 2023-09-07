@@ -1,111 +1,104 @@
 'use strict';
 
-const swap = (vetor, pos1, pos2) => {
-  [vetor[pos1], vetor[pos2]] = [vetor[pos2], vetor[pos1]];
+const swap = (array, i, j) => {
+  [array[i], array[j]] = [array[j], array[i]];
 };
 
-const shuffle = (vetor, quant = vetor.length) => {
+const shuffle = (array, quant = array.length) => {
   for (let i = 0; i < quant; i++) {
-    const pos1 = Math.floor(Math.random() * vetor.length);
-    const pos2 = Math.floor(Math.random() * vetor.length);
-    swap(vetor, pos1, pos2);
+    const pos1 = Math.floor(Math.random() * array.length);
+    const pos2 = Math.floor(Math.random() * array.length);
+    swap(array, pos1, pos2);
   }
 };
 
-const bubbleSort = (vetor) => {
-  for (let i = 0; i < vetor.length - 1; i++) {
-    for (let j = 0; j < vetor.length - i - 1; j++) {
-      if (vetor[j] > vetor[j + 1]) {
-        swap(vetor, j, j + 1);
+const bubbleSort = (array) => {
+  for (let i = 0; i < array.length - 1; i++) {
+    for (let j = 0; j < array.length - i - 1; j++) {
+      if (array[j] > array[j + 1]) {
+        swap(array, j, j + 1);
       }
     }
   }
 };
 
-const selectionSort = (vetor) => {
-  for (let i = 0; i < vetor.length  - 1; i++) {
-    for (let j = i + 1; j < vetor.length; j++) {
-      if (vetor[i] > vetor[j]) {
-        swap(vetor, i, j);
+const insertionSort = (array) => {
+  let i = 1;
+  while (i < array.length) {
+    let j = i;
+    while (j > 0 && array[j - 1] > array[j]) {
+      swap(array, j, j - 1);
+      j--;
+    }
+    i++;
+  }
+}
+
+const selectionSort = (array) => {
+  for (let i = 0; i < array.length  - 1; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] > array[j]) {
+        swap(array, i, j);
       }
     }
   }
 };
 
-const quickSort = (vetor, start = 0, end = vetor.length - 1) => {
-  if (start == undefined) {
-    start = 0;
-  }
-  if (end == undefined) {
-    end = vetor.length - 1;
-  }
+const quickSort = (array, start = 0, end = array.length - 1) => {
+  start = start == undefined ? 0 : start;
+  end = end == undefined ? array.length - 1 : end;
   if (start >= end) {
     return;
   }
-  const index = particionamento(vetor, start, end);
-  quickSort(vetor, start, index - 1);
-  quickSort(vetor, index + 1, end);
+  const index = partition(array, start, end);
+  quickSort(array, start, index - 1);
+  quickSort(array, index + 1, end);
 };
 
-const particionamento = (vetor, start, end) => {
-  const pivotValue = vetor[end];
+const partition = (array, start, end) => {
   let pivotIndex = start;
   for (let i = start; i < end; i++) {
-    if (vetor[i] < pivotValue) {
-      swap(vetor, i, pivotIndex);
+    if (array[i] < array[end]) {
+      swap(array, i, pivotIndex);
       pivotIndex++;
     }
   }
-  swap(vetor, pivotIndex, end);
+  swap(array, pivotIndex, end);
   return pivotIndex;
 };
 
-let valores = [];
-
-const limparCampo = () => {
-  const input = document.getElementById('valor');
-  input.value = '';
+const limparValor = () => {
+  document.getElementById('valor').value = '';
 };
 
 const add = () => {
-  const input = document.getElementById('valor');
-  const valor = Number(input.value);
-  const lista = document.getElementById('valores');
-  const node = document.createElement('li');
+  const valor = Number(document.getElementById('valor').value);
   const textNode = document.createTextNode(valor);
+  const node = document.createElement('li');
   node.appendChild(textNode);
-  lista.appendChild(node);
-  valores.push(parseInt(valor));
-  limparCampo();
+  document.getElementById('valores').appendChild(node);
+  limparValor();
 };
 
-const limpar = () => {
-  const listaValores = document.getElementById('valores');
-  listaValores.innerHTML = '';
-  const input = document.getElementById('valor');
-  input.value = '';
+const limparValores = () => {
+  limparValor();
+  document.getElementById('valores').innerHTML = '';
 };
 
 const ordenar = () => {
   const lista = document.getElementById('valores');
   const selects = document.getElementById('selects');
-  const vetor = Array.from(lista.children).map(item => parseInt(item.innerHTML));
+  const array = Array.from(lista.children).map(item => parseInt(item.innerHTML));
   const algoritmo = selects.options[selects.selectedIndex].value;
   switch (algoritmo) {
-    case 'bubbleSort':
-      bubbleSort(vetor);
-      break;
-    case 'selection':
-      selectionSort(vetor);
-      break;
-    case 'quickSort':
-      quickSort(vetor, 0, vetor.length - 1);
-      break;
+    case 'bubbleSort': bubbleSort(array); break;
+    case 'insertionSort': insertionSort(array); break;
+    case 'selectionSort': selectionSort(array); break;
+    case 'quickSort': quickSort(array, 0, array.length - 1); break;
   }
-  const novosItens = vetor
+  lista.innerHTML = array
     .map(item => `<li>${item}</li>`)
     .reduce((acumulador, item) => acumulador + item, '');
-  lista.innerHTML = novosItens;
 };
 
 const misturar =( ) => {

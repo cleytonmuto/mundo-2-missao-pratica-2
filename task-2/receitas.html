@@ -5,78 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receitas</title>
+    <title>Catálogo de Receitas</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-warning">
     <header>
         <nav class="navbar navbar-expand bg-body-secondary">
             <ul class="navbar-nav px-1">
                 <li><a href="/index.html" class="btn btn-custom btn-secondary m-3">Inicio</a></li>
                 <li><a href="/task-1/sorting.html" class="btn btn-custom btn-secondary m-3">Tarefa 1</a></li>
-                <li><a href="./receitas.html" class="btn btn-custom btn-secondary m-3 disabled bg-primary">Tarefa 2</a></li>
+                <li><a href="./receitas.html" class="btn btn-custom btn-secondary m-3 disabled bg-primary">Tarefa 2</a>
+                </li>
                 <li><a href="/task-3/usuarios.html" class="btn btn-custom btn-secondary m-3">Tarefa 3</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="container-fluid d-flex flex-wrap align-items-center gap-5 justify-content-center py-5">
-        <div class="card rounded-5 my-4" style="width: 320px; height: 600px;">
-            <img src="/assets/arroz.png" alt="Arroz de Couve-Flor" class="card-img-top">
-            <div class="card-body">
-                <h2 class="card-title text-center fs-4 p-2 fw-bold cor-principal">Arroz de Couve-Flor</h2>
-                <ul class="mb-5">
-                    <li>Arroz</li>
-                    <li>Couve-Flor</li>
-                    <li>Cebola Média</li>
-                    <li>Azeite</li>
-                </ul>
-                <hr>
-                <p class="card-text p-2">Deixe a couve-flor picada.
-                    Adicione os ingredientes e
-                    refogue bem. Adicione sal,
-                    tampe a panela e deixe
-                    cozinhar.</p>
-            </div>
-        </div>
-        <div class="card rounded-5 my-4" style="width: 320px; height: 600px;">
-            <img src="/assets/bolo.png" alt="Bolo de café" class="card-img-top">
-            <div class="card-body">
-                <h2 class="card-title text-center fs-4 p-2 fw-bold cor-principal">Bolo de Café</h2>
-                <ul>
-                    <li>Farinha de Trigo</li>
-                    <li>Açúcar</li>
-                    <li>Café Coado</li>
-                    <li>Chocolate em Pó</li>
-                    <li>Ovos</li>
-                </ul>
-                <hr>
-                <p class="card-text p-2">Bata o açúcar, as gemas e o café. Adicione farinha e chocolate e mexa bem. Bate
-                    as claras e junte a mistura.</p>
-            </div>
-        </div>
-        <div class="card rounded-5 my-4" style="width: 320px; height: 600px;">
-            <img src="/assets/coxinha.png" alt="Coxinha de brigadeiro" class="card-img-top">
-            <div class="card-body">
-                <h2 class="card-title text-center fs-4 p-2 fw-bold cor-principal">Coxinha de Brigadeiro</h2>
-                <ul>
-                    <li>Leite Condensado</li>
-                    <li>Chocolate em Pó</li>
-                    <li>Manteiga</li>
-                    <li>Morango</li>
-                    <li>Chocolate Granulado</li>
-                </ul>
-                <hr>
-                <p class="card-text p-2">Junte o leite condensado, chocolate em pó e manteiga. Aqueça no fogo baixo.
-                    Envolva os morangos e passe no granulado.</p>
-            </div>
-        </div>
+    <main class="container-fluid">
+        <h1 class="fw-bold text-center my-4">Catálogo de Receitas</h1>
+        <div id="pnlCatalogo"
+            class="container-fluid d-flex flex-wrap align-items-center gap-5 justify-content-center"></div>
     </main>
+    <script src="./receitas.js"></script>
 
-    <footer class="rodape">
+    <footer class="rodape my-4">
         <p> &#169;&nbsp;<a href="mailto:cleytonmuto@gmail.com" target="_blank">Cleyton Muto 2023</a></p>
     </footer>
 </body>
