@@ -87,3 +87,8 @@ ul#valores > li {
     font-size: 1.25em !important;
     margin: 0;
 }
+
+.subtitle {
+    font-style: italic;
+    color: blue;
+}

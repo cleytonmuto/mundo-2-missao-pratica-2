@@ -11,7 +11,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-warning">
     <header>
         <nav class="navbar navbar-expand bg-body-secondary">
             <ul class="navbar-nav px-1">
@@ -25,7 +25,8 @@
     </header>
     <main class="container">
         <h1 class="text-center m-3">Usuários de Teste via REST</h1>
-        <div id="usuarios" class="container-fluid ">
+        <h5 class="text-center m-3 subtitle">Os usuários deste exemplo são fornecidos pela API de testes <a href="https://reqres.in/" target="_blank">reqres.in</a></h5>
+        <div class="container-fluid" id="usuarios" >
             <div class="row d-flex justify-content-center">
                 <div class="card col-3 p-2 m-3 text-center" v-for="(user,index) in users" :key="index">
                     <img class="card-img-top" :src="user.avatar">
