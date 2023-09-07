@@ -18,3 +18,6 @@ site: https://mundo-2-missao-pratica-2.vercel.app/
 site: https://fullstackers.com.br/mundo-2-missao-pratica-2/
 
 ![image](https://github.com/cleytonmuto/mundo-2-missao-pratica-2/assets/12730298/02c68187-35e7-4dc1-bd64-789561e67ac8)
+![image](https://github.com/cleytonmuto/mundo-2-missao-pratica-2/assets/12730298/ec774c60-b496-42a4-9edd-4d844c7f6b3c)
+![image](https://github.com/cleytonmuto/mundo-2-missao-pratica-2/assets/12730298/1a5cc2d3-e71e-4406-8b2d-0dd85f567b39)
+![image](https://github.com/cleytonmuto/mundo-2-missao-pratica-2/assets/12730298/dc8fcaa0-b696-49d0-8231-732b5006612f)
