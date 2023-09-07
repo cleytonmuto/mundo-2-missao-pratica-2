@@ -65,6 +65,10 @@ input#valor {
     width: 250px;
 }
 
+.form-select {
+    font-style: italic;
+}
+
 ul#valores {
     list-style-type: none;
     overflow: hidden;

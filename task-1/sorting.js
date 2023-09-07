@@ -101,7 +101,7 @@ const ordenar = () => {
     .reduce((acumulador, item) => acumulador + item, '');
 };
 
-const misturar =( ) => {
+const misturar = ( ) => {
   const lista = document.getElementById('valores');
   const array = Array.from(lista.children);
   shuffle(array);
