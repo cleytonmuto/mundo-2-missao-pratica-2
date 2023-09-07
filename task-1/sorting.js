@@ -1,56 +1,38 @@
 'use strict';
 
 const swap = (vetor, pos1, pos2) => {
-  const temp = vetor[pos1];
-  vetor[pos1] = vetor[pos2];
-  vetor[pos2] = temp;
-  return vetor;
+  [vetor[pos1], vetor[pos2]] = [vetor[pos2], vetor[pos1]];
 };
 
-const shuffle = (vetor, quant) => {
+const shuffle = (vetor, quant = vetor.length) => {
   for (let i = 0; i < quant; i++) {
     const pos1 = Math.floor(Math.random() * vetor.length);
     const pos2 = Math.floor(Math.random() * vetor.length);
-    const temp = vetor[pos1];
-    vetor[pos1] = vetor[pos2];
-    vetor[pos2] = temp;
+    swap(vetor, pos1, pos2);
   }
-  return vetor;
 };
 
-const bubble_sort = (vetor) => {
-  const tamanho = vetor.length;
-  for (let i = 0; i < tamanho - 1; i++) {
-    for (let j = 0; j < tamanho - i - 1; j++) {
+const bubbleSort = (vetor) => {
+  for (let i = 0; i < vetor.length - 1; i++) {
+    for (let j = 0; j < vetor.length - i - 1; j++) {
       if (vetor[j] > vetor[j + 1]) {
-        const temp = vetor[j];
-        vetor[j] = vetor[j + 1];
-        vetor[j + 1] = temp;
+        swap(vetor, j, j + 1);
       }
     }
   }
-  return vetor;
 };
 
-const selection_sort = (vetor) => {
-  const tamanho = vetor.length;
-  for (let i = 0; i < tamanho - 1; i++) {
-    let indiceMenor = i;
-    for (let j = i + 1; j < tamanho; j++) {
-      if (vetor[j] < vetor[indiceMenor]) {
-        indiceMenor = j;
+const selectionSort = (vetor) => {
+  for (let i = 0; i < vetor.length  - 1; i++) {
+    for (let j = i + 1; j < vetor.length; j++) {
+      if (vetor[i] > vetor[j]) {
+        swap(vetor, i, j);
       }
     }
-    if (indiceMenor !== i) {
-      const temp = vetor[i];
-      vetor[i] = vetor[indiceMenor];
-      vetor[indiceMenor] = temp;
-    }
   }
-  return vetor;
 };
 
-const quick_sort = (vetor, start = 0, end = vetor.length - 1) => {
+const quickSort = (vetor, start = 0, end = vetor.length - 1) => {
   if (start == undefined) {
     start = 0;
   }
@@ -61,8 +43,8 @@ const quick_sort = (vetor, start = 0, end = vetor.length - 1) => {
     return;
   }
   const index = particionamento(vetor, start, end);
-  quick_sort(vetor, start, index - 1);
-  quick_sort(vetor, index + 1, end);
+  quickSort(vetor, start, index - 1);
+  quickSort(vetor, index + 1, end);
 };
 
 const particionamento = (vetor, start, end) => {
@@ -80,6 +62,11 @@ const particionamento = (vetor, start, end) => {
 
 let valores = [];
 
+const limparCampo = () => {
+  const input = document.getElementById('valor');
+  input.value = '';
+};
+
 const add = () => {
   const input = document.getElementById('valor');
   const valor = Number(input.value);
@@ -89,14 +76,15 @@ const add = () => {
   node.appendChild(textNode);
   lista.appendChild(node);
   valores.push(parseInt(valor));
-}
+  limparCampo();
+};
 
 const limpar = () => {
   const listaValores = document.getElementById('valores');
   listaValores.innerHTML = '';
   const input = document.getElementById('valor');
   input.value = '';
-}
+};
 
 const ordenar = () => {
   const lista = document.getElementById('valores');
@@ -108,14 +96,14 @@ const ordenar = () => {
   let end = vetor.length - 1;
 
   switch (algoritmo) {
-    case 'bubble_sort':
-      bubble_sort(vetor);
+    case 'bubbleSort':
+      bubbleSort(vetor);
       break;
     case 'selection':
-      selection_sort(vetor);
+      selectionSort(vetor);
       break;
-    case 'quick_sort':
-      quick_sort(vetor, start, end);
+    case 'quickSort':
+      quickSort(vetor, start, end);
       break;
   }
 
@@ -123,13 +111,21 @@ const ordenar = () => {
     .map(item => `<li>${item}</li>`)
     .reduce((acumulador, item) => acumulador + item, '');
   lista.innerHTML = novosItens;
-}
+};
 
 const misturar =( ) => {
   const lista = document.getElementById('valores');
   const array = Array.from(lista.children);
-  shuffle(array, array.length);
+  shuffle(array);
   for (let i = 0; i < array.length; i++) {
     lista.appendChild(array[i]);
   }
-}
+};
+
+const input = document.getElementById('valor');
+input.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    document.getElementById('addElement').click();
+  }
+});
