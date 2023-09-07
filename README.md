@@ -14,9 +14,7 @@
 HTML + CSS + Javascript + Vue JS
 
 site: https://mundo-2-missao-pratica-2.vercel.app/
+
 site: https://fullstackers.com.br/mundo-2-missao-pratica-2/
 
-![image](https://github.com/cleytonmuto/mundo-2-missao-pratica-2/assets/12730298/859b4168-3cce-4fb5-bc0f-7c19612edf45)
-![image](https://github.com/cleytonmuto/mundo-2-missao-pratica-2/assets/12730298/c6717adc-cfec-4c49-a25b-28f475378c68)
-![image](https://github.com/cleytonmuto/mundo-2-missao-pratica-2/assets/12730298/54c441fd-0b4b-422b-85a1-41a5fc231738)
-![image](https://github.com/cleytonmuto/mundo-2-missao-pratica-2/assets/12730298/0ff955f2-5084-43fd-9110-8028900bf77f)
+![image](https://github.com/cleytonmuto/mundo-2-missao-pratica-2/assets/12730298/02c68187-35e7-4dc1-bd64-789561e67ac8)
