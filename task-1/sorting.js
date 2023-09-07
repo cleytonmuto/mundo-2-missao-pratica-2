@@ -91,10 +91,6 @@ const ordenar = () => {
   const selects = document.getElementById('selects');
   const vetor = Array.from(lista.children).map(item => parseInt(item.innerHTML));
   const algoritmo = selects.options[selects.selectedIndex].value;
-
-  let start = 0;
-  let end = vetor.length - 1;
-
   switch (algoritmo) {
     case 'bubbleSort':
       bubbleSort(vetor);
@@ -103,10 +99,9 @@ const ordenar = () => {
       selectionSort(vetor);
       break;
     case 'quickSort':
-      quickSort(vetor, start, end);
+      quickSort(vetor, 0, vetor.length - 1);
       break;
   }
-
   const novosItens = vetor
     .map(item => `<li>${item}</li>`)
     .reduce((acumulador, item) => acumulador + item, '');

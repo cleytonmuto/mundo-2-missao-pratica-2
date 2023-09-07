@@ -55,6 +55,7 @@ footer {
 .input-buttons > button, .sorting-buttons > button {
     margin-right: 1rem;
 }
+
 h1 {
     font-family: 'Roboto', Arial, Helvetica, sans-serif !important;
     color: var(--primary-color) !important;
@@ -72,6 +73,8 @@ ul#valores {
 ul#valores > li {
     float: left;
     padding: 1rem;
+    margin: 1px;
+    border: 1px solid blue;
 }
 
 .custom-text {
@@ -144,22 +147,6 @@ ul#valores > li {
     .text-container p {
         font-size: 1.3em !important;
     }
-}
-
-.font-kid {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif !important;
-    font-size: 3em !important;
-    color: var(--primary-color) !important;
-}
-
-.btn-kid {
-    background-color: var(--container-color) !important;
-    border: 0px solid var(--primary-color);
-}
-
-.btn-kid:hover {
-    background-color: var(--emphasize-color);
-    color: black;
 }
 
 .main-color {
